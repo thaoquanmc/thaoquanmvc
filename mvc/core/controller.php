@@ -1,6 +1,6 @@
 <?php
 
-class controller
+class Controller
 {
     public function model($model)
     {
@@ -9,10 +9,9 @@ class controller
             return new $model;
         }
     }
-    public function view($view,$arr){
+    public function view($view,$data=null){
         if (file_exists('./mvc/views/' . $view . '.php')) {
             require_once './mvc/views/' . $view . '.php';
-            return new $view;
         }
     }
 }

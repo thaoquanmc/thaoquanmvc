@@ -1,10 +1,6 @@
 <?php
-class my_model extends db {
-    public function getSV(){
-        return "Nguyen Van A";
-    }
-
-    public function tong($a,$b){
-        return $a+$b;
+class my_model extends Db {
+    public function getValue(){
+        return "This is a function getValue of my model";
     }
 }

@@ -1,18 +1,17 @@
 <?php
 
-class app
+class App
 {
-    protected $controller = "home";
-    protected $action = "hi";
+    protected $controller = "Home";
+    protected $action = "default";
     protected $params = [];
 
-    function __construct()
+    public function __construct()
     {
         $arr = $this->url_process();
 
-
         //Controller
-        if (file_exists("./mvc/controllers/{$arr[0]}.php")) {
+        if (file_exists("./mvc/controllers/$arr[0].php")) {
             $this->controller = $arr[0];
             unset($arr[0]);
         }
@@ -34,7 +33,7 @@ class app
         call_user_func_array([$this->controller, $this->action], $this->params);
     }
 
-    function url_process()
+    public function url_process()
     {
         if (isset($_GET['url'])) {
             return explode('/', filter_var(trim(strtolower($_GET['url']), "/")));
